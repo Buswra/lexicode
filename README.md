@@ -25,6 +25,7 @@ Birçok İngilizce öğrenme aracı disleksi dostu değildir ve teknik İngilizc
 
 ## 🌍 Yayın Linki
 
+- **Web Uygulaması (Canlı):** [https://lexicode-afta.onrender.com](https://lexicode-afta.onrender.com)
 - **GitHub Releases:** [LexiCode-Setup.exe İndir](https://github.com/Buswra/lexicode/releases/latest)
 - **GitHub Repo:** https://github.com/Buswra/lexicode
 
