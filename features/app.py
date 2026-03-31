@@ -84,6 +84,9 @@ def init_db():
     c.execute("UPDATE settings SET value='' WHERE key='active_level' AND value='A1'")
     c.connection.commit(); c.connection.close()
 
+# Modül yüklendiğinde DB'yi hazırla (gunicorn & __main__ için)
+init_db()
+
 def get_conn():
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row

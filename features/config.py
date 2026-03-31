@@ -25,8 +25,8 @@ APP_DIR.mkdir(parents=True, exist_ok=True)
 
 APP_NAME = 'LexiCode'
 APP_VERSION = '1.2.0'
-DEFAULT_HOST = '127.0.0.1'
-DEFAULT_PORT = int(os.getenv('LEXICODE_PORT', '5000'))
+DEFAULT_HOST = os.getenv('HOST', '127.0.0.1')
+DEFAULT_PORT = int(os.getenv('PORT', os.getenv('LEXICODE_PORT', '5000')))
 DEBUG = os.getenv('LEXICODE_DEBUG', '0') == '1'
 CLAUDE_MODEL = os.getenv('CLAUDE_MODEL', 'claude-sonnet-4-20250514')
 DB_PATH = APP_DIR / 'progress.db'
