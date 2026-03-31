@@ -63,6 +63,11 @@ WORDS = CS_WORDS + DAILY_WORDS
 # ═══════════════════════════════════════════════════════
 # VERİTABANI
 # ═══════════════════════════════════════════════════════
+def get_conn():
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+    return conn.cursor()
+
 def init_db():
     c = get_conn()
     c.execute("""CREATE TABLE IF NOT EXISTS progress (
@@ -86,11 +91,6 @@ def init_db():
 
 # Modül yüklendiğinde DB'yi hazırla (gunicorn & __main__ için)
 init_db()
-
-def get_conn():
-    conn = sqlite3.connect(DB)
-    conn.row_factory = sqlite3.Row
-    return conn.cursor()
 
 def get_s(k, d=""):
     conn = sqlite3.connect(DB); c = conn.cursor()
