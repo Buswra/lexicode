@@ -25,41 +25,70 @@ Birçok İngilizce öğrenme aracı disleksi dostu değildir ve teknik İngilizc
 
 ## 🌍 Yayın Linki
 
-- Yayın / landing page: `https://replace-with-your-publish-link.example`
+- **GitHub Releases:** [LexiCode-Setup.exe İndir](https://github.com/Buswra/lexicode/releases/latest)
+- **GitHub Repo:** https://github.com/Buswra/lexicode
 - Yerel çalışma adresi: `http://127.0.0.1:5000`
 
-> Gönderimden önce üstteki iki placeholder linki kendi gerçek bağlantılarınla değiştirmen yeterli.
+---
+
+## 🚀 Kurulum (Son Kullanıcı İçin)
+
+Bu proje **hazır masaüstü uygulaması** olarak dağıtılır. Python, pip veya herhangi bir teknik bilgi gerekmez.
+
+### 📥 Nasıl Kurulur?
+
+1. [**LexiCode-Setup.exe**](https://github.com/Buswra/lexicode/releases/latest) dosyasını indirin
+2. İndirilen dosyaya çift tıklayın
+3. Kurulum sihirbazını takip edin: **İleri → İleri → Kur**
+4. Masaüstünde oluşan **LexiCode** kısayoluna tıklayın
+5. Uygulama açılır — öğrenmeye başlayın! 🎉
+
+### ✅ Özellikler
+
+- 📚 **Kelime Kartları (Flashcards)** — CS ve günlük İngilizce kelimeleri
+- 🔊 **Neural Seslendirme** — İngilizce ve Türkçe telaffuz (edge-tts)
+- 🤖 **AI Tutor** — Claude API ile cümle düzeltme, bağlam üretimi, mini diyalog
+- 📝 **Quiz Sistemi** — 15 saniyelik zamanlayıcı, konfeti animasyonu
+- 🧠 **Zihin Haritası** — Kelime ilişkilerini görselleştirir
+- 📊 **İlerleme Takibi** — XP, streak, 11 rozet, öğrenme geçmişi
+- ♿ **Erişilebilirlik Paneli** — Yazı boyutu, satır aralığı, yüksek kontrast modu
+- 🔍 **Arama ve Sıralama** — Kelimeyi anında bul
+- 📤 **CSV Dışa Aktarma** — İlerleme verisini indir
+
+### ⚠️ Notlar
+
+- Uygulama şu anda sadece **Windows** üzerinde desteklenmektedir
+- Windows Defender uyarı verirse: **"Daha fazla bilgi" → "Yine de çalıştır"** tıklayın
+- AI Tutor için Claude API anahtarı opsiyoneldir — olmasa da uygulama çalışır
 
 ---
 
-## 🚀 Installation & Usage
+## 🛠️ Geliştirici Kurulumu (Kaynak Koddan Çalıştırma)
 
-This project is distributed as a **ready-to-use desktop application**.
-No technical setup or dependency installation is required.
+Projeyi kaynak koddan çalıştırmak isteyen geliştiriciler için:
 
-### 📥 How to Use
+```bash
+# 1. Repoyu klonla
+git clone https://github.com/Buswra/lexicode.git
+cd lexicode
 
-1. Download `LexiCode-Setup.exe` from this repository (`dist/LexiCode-Setup.exe`).
-2. Double-click the setup file to run the installer.
-3. The application will automatically install itself on your system.
-4. A shortcut will be created on your desktop.
-5. Launch the application using the desktop shortcut.
+# 2. Sanal ortam oluştur
+python -m venv .venv
+.venv\Scripts\activate
 
-### ✅ Features
+# 3. Bağımlılıkları kur
+pip install -r requirements.txt
 
-* No need to install Python, Node.js, or any dependencies
-* Fully packaged application
-* One-click installation experience
-* User-friendly and beginner-friendly setup
+# 4. (Opsiyonel) AI Tutor için .env dosyası oluştur
+copy .env.example .env
+# .env dosyasında ANTHROPIC_API_KEY değerini gir
 
-### ⚠️ Notes
+# 5. Uygulamayı çalıştır
+python features/desktop_launcher.py
 
-* This application is currently supported on **Windows only**
-* If Windows Defender shows a warning, click **"More info" -> "Run anyway"**
-
----
-
-💡 The goal of this setup is to provide a **zero-setup experience**, allowing users to start using the application instantly without any technical knowledge.
+# 6. Testleri çalıştır
+pytest features/tests/
+```
 
 ---
 
