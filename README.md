@@ -27,7 +27,7 @@ Birçok İngilizce öğrenme aracı disleksi dostu değildir ve teknik İngilizc
 
 - **GitHub Releases:** [LexiCode-Setup.exe İndir](https://github.com/Buswra/lexicode/releases/latest)
 - **GitHub Repo:** https://github.com/Buswra/lexicode
-- Yerel çalışma adresi: `http://127.0.0.1:5000`
+
 
 ---
 
