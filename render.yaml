@@ -1,12 +1,8 @@
 services:
   - type: web
     name: lexicode
-    runtime: python
+    runtime: docker
     plan: free
-    buildCommand: pip install -r requirements-web.txt
-    startCommand: gunicorn features.app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: HOST
         value: "0.0.0.0"
-      - key: PYTHON_VERSION
-        value: "3.12.0"
