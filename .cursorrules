@@ -1,0 +1,49 @@
+# LexiCode — Cursor Rules
+
+## Proje Özeti
+LexiCode, disleksi dostu, AI destekli masaüstü İngilizce öğrenme uygulamasıdır.
+Teknoloji: Python 3.14 + Flask + PySide6 + SQLite + edge-tts + Claude API.
+
+## Mimari Kurallar
+- Backend: `features/app.py` → Flask API sunucusu, tüm route'lar burada.
+- Desktop Shell: `features/desktop_launcher.py` → PySide6 + QtWebEngine, Flask'ı thread'de başlatır.
+- Config: `features/config.py` → merkezi ayarlar (port, db path, resource dir).
+- Frontend: `features/templates/index.html` → Tek sayfalık uygulama (SPA), tüm HTML/CSS/JS tek dosyada.
+- Ses: `features/services/tts_service.py` → edge-tts ile neural TTS.
+- Kelimeler: `features/words.py` (günlük) + `features/words_cs.py` (CS terminolojisi).
+- Testler: `features/tests/test_api.py` → pytest ile API testleri.
+
+## Kod Stili
+- Python: PEP 8, type hint kullan, docstring yaz.
+- Her fonksiyon kısa ve tek sorumluluklu olsun.
+- SQL injection'a karşı parametreli sorgular kullan (zaten yapılıyor).
+- Frontend'de inline CSS ve JS tercih ediliyor (tek HTML dosyası).
+- Disleksi dostu: büyük fontlar, yüksek kontrast, Lexend font ailesi.
+- Türkçe kullanıcı mesajları, İngilizce kod yorumları.
+
+## API Konvansiyonları
+- Tüm API endpoint'leri `/api/` prefix'i ile başlar.
+- JSON response döner, hatalarda `utils/responses.py:api_error()` kullan.
+- AI endpoint'leri fallback mekanizmasına sahip (Claude yoksa yerel düzeltme).
+
+## Paketleme
+- PyInstaller ile EXE, Inno Setup ile installer (`LexiCode-Setup.exe`).
+- `sys._MEIPASS` ile frozen modda resource path'i çözülür (`config.py`).
+- Kullanıcı verisi `%LOCALAPPDATA%/LexiCode/progress.db`'de saklanır.
+
+## Test
+- `pytest` kullan, `features/tests/` altına yaz.
+- API testlerinde Flask test client kullan.
+- Test komutları: `python -m pytest -q`
+
+## Değişiklik Yaparken
+- Yeni kelime eklerken `words.py` veya `words_cs.py`'ye ekle, format: `{"id": N, "word": "...", ...}`.
+- Yeni bir route eklerken `app.py`'deki ilgili bölüme ekle.
+- Frontend değişikliği `index.html` içinde yapılır.
+- Her değişiklikten sonra `pytest` çalıştır.
+
+## YAPMA
+- `node_modules`, `npm`, `webpack` kullanma — bu saf Python projesi.
+- Yeni bağımlılık eklemeden önce mevcut araçlarla çöz.
+- `progress.db`'yi git'e commit etme.
+- Secret key'leri koda gömme, `.env` kullan.
