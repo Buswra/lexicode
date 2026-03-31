@@ -21,7 +21,7 @@ Birçok İngilizce öğrenme aracı disleksi dostu değildir ve teknik İngilizc
 
 ## 🎥 Demo Video
 
-- Loom / YouTube: `https://www.loom.com/share/REPLACE-WITH-YOUR-DEMO-LINK`
+- Loom / YouTube: https://www.loom.com/share/a3567ce4ef2a4ac08e8c0fb3b85a437b
 
 ## 🌍 Yayın Linki
 
